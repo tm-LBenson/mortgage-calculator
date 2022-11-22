@@ -6,12 +6,41 @@ public class Main {
         final byte MONTHS_IN_YEAR = 12;
         final byte PERCENT = 100;
         Scanner scanner = new Scanner(System.in);
-        System.out.printf("Principal ");
-        int principal =   Integer.parseInt(scanner.nextLine().trim());
-        System.out.printf("Annual Interest Rate: ");
-        double interest = Double.parseDouble(scanner.nextLine().trim());
-        System.out.printf("Period (years) ");
-        byte period = Byte.parseByte(scanner.nextLine().trim());
+        int principal;
+        while(true) {
+            System.out.println("Choose principal between 1,000 and 1,000,000");
+            System.out.printf("Principal ");
+             principal = scanner.nextInt();
+             if(principal >= 1000 && principal <= 1_000_000){
+                 break;
+             }else{
+                 System.out.println("Invalid");
+             }
+        }
+        float interest;
+        while (true) {
+            System.out.println("Choose interest rate between 1% and 30%");
+            System.out.printf("Annual Interest Rate: ");
+
+            interest = scanner.nextFloat();
+            if(interest > 0 && interest <= 30){
+                break;
+            }else{
+                System.out.println("invalid");
+            }
+        }
+        byte period;
+        while(true){
+            System.out.println("Duration of loan between 1 and 30 years");
+            System.out.printf("Period (years) ");
+            period = scanner.nextByte();
+            if(period > 1 && period <= 30){
+                break;
+            }else{
+                System.out.println("invalid");
+            }
+        }
+
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
         double monthlyInterest = (interest /PERCENT)/MONTHS_IN_YEAR;
         double numberOfPayments = period * MONTHS_IN_YEAR;
