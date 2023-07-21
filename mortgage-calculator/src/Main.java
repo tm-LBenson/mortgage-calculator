@@ -18,7 +18,7 @@ public class Main {
         double top = monthlyInterest * Math.pow((1 + monthlyInterest), numberOfPayments);
         double bottom = Math.pow((1 + monthlyInterest), numberOfPayments) - 1;
         double reducedFraction = principal*(top/bottom);
-        System.out.println("Mortgage: "+total.format(reducedFraction));
+        System.out.println("Mortgage: " + total.format(reducedFraction));
 
     }
 }
