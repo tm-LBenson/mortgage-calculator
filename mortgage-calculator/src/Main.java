@@ -5,6 +5,8 @@ import java.util.Scanner;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
+        final byte MONTHS_IN_YEAR = 12;
+        final byte PERCENT = 100;
         Scanner scanner = new Scanner(System.in);
         System.out.printf("Principal ");
         int principal =   Integer.parseInt(scanner.nextLine().trim());
@@ -13,8 +15,8 @@ public class Main {
         System.out.printf("Period (years) ");
         byte period = Byte.parseByte(scanner.nextLine().trim());
         NumberFormat total = NumberFormat.getCurrencyInstance();
-        double monthlyInterest = (interest /100)/12;
-        double numberOfPayments = period * 12;
+        double monthlyInterest = (interest /PERCENT)/MONTHS_IN_YEAR;
+        double numberOfPayments = period * MONTHS_IN_YEAR;
         double top = monthlyInterest * Math.pow((1 + monthlyInterest), numberOfPayments);
         double bottom = Math.pow((1 + monthlyInterest), numberOfPayments) - 1;
         double reducedFraction = principal*(top/bottom);
