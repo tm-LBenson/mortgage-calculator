@@ -15,9 +15,9 @@ public class Main {
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
         double monthlyInterest = (interest /PERCENT)/MONTHS_IN_YEAR;
         double numberOfPayments = period * MONTHS_IN_YEAR;
-        double top = monthlyInterest * Math.pow((1 + monthlyInterest), numberOfPayments);
-        double bottom = Math.pow((1 + monthlyInterest), numberOfPayments) - 1;
-        double reducedFraction = principal*(top/bottom);
+        double numerator = monthlyInterest * Math.pow((1 + monthlyInterest), numberOfPayments);
+        double denominator = Math.pow((1 + monthlyInterest), numberOfPayments) - 1;
+        double reducedFraction = principal*(numerator/denominator);
         String mortgageFormatted = formatter.format(reducedFraction);
         System.out.println("Mortgage: " + mortgageFormatted);
 
